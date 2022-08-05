@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-create post
+update post
 <form method="POST">
     {% csrf_token %}
     title{{form.title}}
     <br>
     content{{form.content}}
-    <button type="submit">Submit</button>
+    <button type="submit">Update</button>
 </form>
 {% endblock %}
