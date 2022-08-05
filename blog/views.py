@@ -10,7 +10,7 @@ class BlogListView(View):
         context={
             'posts':posts
         }
-        return render(request, 'blog_list.html', context)
+        return render(request, 'blog/blog_list.html', context)
 
 
 class BlogCreateView(View):
@@ -19,7 +19,7 @@ class BlogCreateView(View):
         context={
             'form':form
         }
-        return render(request, 'blog_create.html', context)
+        return render(request, 'blog/blog_create.html', context)
 
     def post(self, request, *args, **kwargs):
         if request.method=="POST":
@@ -34,7 +34,7 @@ class BlogCreateView(View):
         context={
 
         }
-        return render(request, 'blog_create.html', context)
+        return render(request, 'blog/blog_create.html', context)
 
 
 class BlogDetailView(View):
@@ -43,13 +43,13 @@ class BlogDetailView(View):
         context={
             'post':post
         }
-        return render(request, 'blog_detail.html', context)
+        return render(request, 'blog/blog_detail.html', context)
 
 
 class BlogUpdateView(UpdateView):    #editar una vista
     model=Post
     fields=['title','content']
-    template_name='blog_update.html'
+    template_name='blog/blog_update.html'   #ver path?
 
     def get_success_url(self):
         pk= self.kwargs['pk']
@@ -58,5 +58,5 @@ class BlogUpdateView(UpdateView):    #editar una vista
 
 class BlogDeleteView(DeleteView):
     model=Post
-    template_name='blog_delete.html'
+    template_name='blog/blog_delete.html'
     success_url=reverse_lazy('blog:home')
