@@ -4,17 +4,22 @@
 
 {% block content %}
 
-<section>
+<section class="posts">
     <h1>Posts</h1>
 
-    {% for post in posts %}
-    <div>
-        <a href="{% url 'blog:detail' post.id %}"> {{post.title}}</a>
-        <a href="{% url 'blog:update' post.id %}">Update</a>
-        <a href="{% url 'blog:delete' post.id %}">Delete</a>
+    <div class="post-container">
+        {% for post in posts %}
+        <div class="post-item">
+            <div>
+                <a href="{% url 'blog:detail' post.id %}"><h1> {{post.title}}</h1></a>
+                <p>{{post.content|striptags|truncatechars:200}}</p>
+            </div>
+            <button><a href="{% url 'blog:update' post.id %}">Update</a></button>
+            <button><a href="{% url 'blog:delete' post.id %}">Delete</a></button>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-    
+
 </section>
 
 {% endblock %}
