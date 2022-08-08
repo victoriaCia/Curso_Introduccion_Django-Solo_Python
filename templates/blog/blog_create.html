@@ -3,17 +3,20 @@
 {% block title %}Create New Post {% endblock %}
 
 {% block content %}
-
-<section>
+<section class="section-container">
     <h1>Create New Post!</h1>
     
-    <form method="POST">
+    <form method="POST" class="form-container">
         {% csrf_token %}
-        title{{form.title}}
-        <br>
-        content{{form.content}}
-        <button type="submit">Submit</button>
+        <div class="form-section">
+            <label for="id_title">Title:</label><br>
+            <input type="text" id="id_title" name="title">
+        </div>
+        <div class="form-section">
+            <label for="id_content">Content:</label><br>
+            <textarea type="text" id="id_content" name="content"></textarea>
+        </div>
+        <button type="submit" id="button-form">SUBMIT</button>
     </form>
 </section>
-
 {% endblock %}

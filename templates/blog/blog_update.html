@@ -4,15 +4,19 @@
 
 {% block content %}
 
-<section>
-    <h1>Update Post</h1>
+<section class="section-container">
+    <h1>Update Post!</h1>
 
-    <form method="POST">
+    <form method="POST" class="form-container">
         {% csrf_token %}
-        title: {{form.title}}
-        <br>
-        content: {{form.content}}
-        <button type="submit">Update</button>
+        <div class="form-section">
+            Title:<br>
+            {{form.title}}
+            <br>
+            Content:<br>
+            {{form.content}}<br>
+        </div>
+        <button type="submit" id="button-form">Update</button>
     </form>
 </section>
 
