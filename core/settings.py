@@ -36,6 +36,8 @@ INSTALLED_APPS = [
 
     'core',
     'blog',
+    'users',
+    'posts',
 
     'tailwind',
     'theme',
