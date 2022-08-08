@@ -4,10 +4,12 @@
 
 {% block content %}
 
-<section class="post-detail">
+<section class="section-container">
     <h1>{{post.title}}</h1>
 
-    <p>{{post.content|safe}}</p>
+    <div class="form-container">
+        <p>{{post.content|safe}}</p>
+    </div>
 </section>
 
 {% endblock %}

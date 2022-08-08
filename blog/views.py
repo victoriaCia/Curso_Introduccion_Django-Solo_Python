@@ -49,7 +49,7 @@ class BlogDetailView(View):
 class BlogUpdateView(UpdateView):    #editar una vista
     model=Post
     fields=['title','content']
-    template_name='blog/blog_update.html'   #ver path?
+    template_name='blog/blog_update.html'   
 
     def get_success_url(self):
         pk= self.kwargs['pk']

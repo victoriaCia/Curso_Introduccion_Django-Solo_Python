@@ -14,8 +14,10 @@
                 <a href="{% url 'blog:detail' post.id %}"><h1> {{post.title}}</h1></a>
                 <p>{{post.content|striptags|truncatechars:200}}</p>
             </div>
-            <button><a href="{% url 'blog:update' post.id %}">Update</a></button>
-            <button><a href="{% url 'blog:delete' post.id %}">Delete</a></button>
+            <div>
+                <button class="button-list"><a href="{% url 'blog:update' post.id %}">Update</a></button>
+                <button class="button-list"><a href="{% url 'blog:delete' post.id %}">Delete</a></button>
+            </div>
         </div>
         {% endfor %}
     </div>
