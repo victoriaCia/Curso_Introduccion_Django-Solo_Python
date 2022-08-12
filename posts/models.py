@@ -22,11 +22,17 @@ class Entry(models.Model):
     body_text = models.TextField()
     pub_date = models.DateField()
     mod_date = models.DateField()
-    authors = models.ManyToManyField(Author)
+    authors = models.ManyToManyField(Author, related_name='entries')
     n_comments = models.IntegerField()
     n_pingbacks = models.IntegerField()
     rating = models.IntegerField()
 
     def __str__(self):
         return self.headline
+
+    def get_absolute_url(self):
+        return redirect(reverse("entries:entry-detail", kwargs={   
+            "id": self.id
+            }))
+    
 
