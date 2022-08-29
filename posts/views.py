@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import View
 from django.views.generic import ListView
-from .models import Entry
+from .models import Blog, Entry
 
 def dummy_view(request):
     return render(request, "posts/post_list.html", {})
@@ -24,3 +24,4 @@ class MyClassView(View):
 
 class MyListView(ListView):
     model = Entry
+

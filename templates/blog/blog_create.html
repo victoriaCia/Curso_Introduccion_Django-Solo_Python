@@ -5,6 +5,8 @@
 {% block content %}
 <section class="section-container">
     <h1>Create New Post!</h1>
+
+    {% if request.user.is_authenticated %}
     
     <form method="POST" class="form-container">
         {% csrf_token %}
@@ -18,5 +20,14 @@
         </div>
         <button type="submit" id="button-form">SUBMIT</button>
     </form>
+
+    {% else %}
+    <div style="color: white;">
+        <p>Debe registrarse primero</p>
+        <a href="#">Registrarse</a>
+        <a href="#">Ingresar</a>
+    </div>
+    {% endif %}
+
 </section>
 {% endblock %}

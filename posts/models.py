@@ -1,4 +1,6 @@
 from django.db import models
+from django.shortcuts import redirect
+from django.urls import reverse
 
 class Blog(models.Model):
     name = models.CharField(max_length=100)
@@ -33,6 +35,6 @@ class Entry(models.Model):
     def get_absolute_url(self):
         return redirect(reverse("entries:entry-detail", kwargs={   
             "id": self.id
-            }))
+            })) 
     
 
